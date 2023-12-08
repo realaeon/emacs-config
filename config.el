@@ -38,14 +38,15 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
 
+;; my system config
+(setq system-time-locale "C")
 (add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
-;;(setq org-todo-keywords '((sequence "TODO(t)" "1(1@/!)" "2(2@/!)" "|" "DONE(d!)")))
+;;(after! org
 (setq org-log-into-drawer t)
-
 (setq org-todo-keywords
       '((sequence
          "TODO(t)"  ; A task that needs doing & is ready to do
@@ -80,9 +81,8 @@
         ("PROJ" . +org-todo-project)
         ("NO"   . +org-todo-cancel)
         ("KILL" . +org-todo-cancel)))
-
 ;; with fast selection keys
-(setq org-tag-alist (quote ((:startgroup)
+(srrq org-tag-alist (quote ((:startgroup)
                             ("@HOME" . ?h)
                             ("@WORK" . ?w)
                             ("@RESEARCH" . ?r)
@@ -90,14 +90,13 @@
 			    ("DL" . ?P)
                             ("HAND" . ?H)
                             ("CODE" . ?c))))
-
 (setq org-agenda-custom-commands
       '(("w" tags-todo "+@WORK")
 	("h" tags-todo "+@HOME")
         ("r" tags-todo "+@RESEARCH")
 	))
+;;)
 
-(setq system-time-locale "C")
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
