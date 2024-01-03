@@ -47,6 +47,10 @@
             #'doom-dashboard-widget-loaded))
 (add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode)
 
+;; dap debug
+(after! dap-mode
+  (setq dap-python-debugger 'debugpy))
+
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
