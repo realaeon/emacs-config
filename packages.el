@@ -48,4 +48,10 @@
 ;; (unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;; (unpin! t)
-(package! aggressive-indent)
+(package!   aggressive-indent
+  ;;org-trello
+  )
+
+;; (package! org-caldav)
+(unpin! org-gcal)
+(package! oauth2)

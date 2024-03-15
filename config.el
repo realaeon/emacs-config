@@ -97,26 +97,57 @@
                               ("@WORK" . ?w)
                               ("@RESEARCH" . ?r)
                               (:endgroup)
-			      ("DL" . ?P)
-                              ("HAND" . ?H)
-                              ("CODE" . ?c))))
+			      ("DATA" . ?d)
+                              ("TEMP" . ?t)
+                              ("EXP" . ?e))))
   (setq org-agenda-custom-commands
         '(("w" tags-todo "+@WORK")
 	  ("h" tags-todo "+@HOME")
           ("r" tags-todo "+@RESEARCH")
 	  )))
 
-(after! org-capture
+(after! org
   (set 'org-capture-templates
-       (append org-capture-templates
-               '(("m" "my todo")
-                 ("mw" "my work todo" entry
-                  (file+headline +org-capture-todo-file "Work")
-                  "* TODO %?\n%a\n%i" :prepend t)
-                 ("mn" "my note todo" entry
-                  (file+headline +org-capture-todo-file "Note")
-                  "* TODO %?\n%a\n%i" :prepend t)
-                 ))))
+       ;; (append org-capture-templates
+       ;;         '(("m" "my todo")
+       ;;           ("mw" "my work todo" entry
+       ;;            (file+headline +org-capture-todo-file "Work")
+       ;;            "* TODO %?\n%a\n%i" :prepend t)
+       ;;           ("mn" "my note todo" entry
+       ;;            (file+headline +org-capture-todo-file "Note")
+       ;;            "* TODO %?\n%a\n%i" :prepend t)
+       ;;           ("a" "Appointment" entry (file ,(concat org-directory "gcal.org"))
+       ;;            "* %?\n:PROPERTIES:\n:calendar-id:\tliwwchn@gmail.com\n:END:\n:org-gcal:\n%^T--%^T\n:END:\n\n" :prepend t))
+       ;;         )
+       '(("m" "my todo")
+         ("mw" "my work todo" entry
+          (file+headline +org-capture-todo-file "Work")
+          "* TODO %?\n%a\n%i" :prepend t)
+         ("mn" "my note todo" entry
+          (file+headline +org-capture-todo-file "Note")
+          "* TODO %?\n%a\n%i" :prepend t)
+         ;; ("a" "Appointment" entry (file  "~/org/gcal.org")
+         ;;  "* %?\n:PROPERTIES:\n:calendar-id:\tliwwchn@gmail.com\n:END:\n:org-gcal:\n%^T--%^T\n:END:\n\n" :prepend t)
+         ("a" "Appointment" entry (file  "~/org/gcal.org")
+          "* TODO %?\n:PROPERTIES:\n:calendar-id:\tliwwchn@gmail.com\n:END:\n:org-gcal:\n\n:END:\n\n" :prepend t)
+         )
+       )
+  )
+
+
+(use-package! org-gcal
+  :after org-agenda
+  :config
+  (setq
+   org-gcal-client-id "912144156376-01mc0ct6sj7opulilplv8ucerneregec.apps.googleusercontent.com"
+   org-gcal-client-secret "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"
+   org-gcal-file-alist '(("liwwchn@gmail.com" .  "~/org/gcal.org")
+                         ;; ("another-mail@gmail.com" .  "~/task.org")
+                         )
+   plstore-cache-passphrase-for-symmetric-encryption t
+   )
+  )
+
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
