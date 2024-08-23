@@ -135,20 +135,29 @@
   )
 
 
-(use-package! org-gcal
-  :after org-agenda
-  :config
-  (setq
-   org-gcal-client-id "912144156376-01mc0ct6sj7opulilplv8ucerneregec.apps.googleusercontent.com"
-   org-gcal-client-secret "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"
-   org-gcal-file-alist '(("liwwchn@gmail.com" .  "~/org/gcal.org")
-                         ;; ("another-mail@gmail.com" .  "~/task.org")
-                         )
-   plstore-cache-passphrase-for-symmetric-encryption t
-   )
-  )
+;; (use-package! org-gcal
+;;   :after org-agenda
+;;   :config
+;;   (setq
+;;    org-gcal-client-id "912144156376-01mc0ct6sj7opulilplv8ucerneregec.apps.googleusercontent.com"
+;;    org-gcal-client-secret "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"
+;;    org-gcal-file-alist '(("liwwchn@gmail.com" .  "~/org/gcal.org")
+;;                          ;; ("another-mail@gmail.com" .  "~/task.org")
+;;                          )
+;;    plstore-cache-passphrase-for-symmetric-encryption t
+;;    )
+;;   )
 
+;;(use-package! gptel
+;;  :config
+;;  (setq! gptel-api-key "AwAAEAJUXQY.3ujDfvPZps7dM1MD7GtLPo6Y1y0ngb8BRDM3T6FQXic"))
+;;(setq
+;; gptel-model "fastgpt"
+;; gptel-backend (gptel-make-kagi "Kagi"
+;;                 :key "AwAAEAJUXQY.3ujDfvPZps7dM1MD7GtLPo6Y1y0ngb8BRDM3T6FQXic"))                ;can be a function that returns the key
 
+                                        ;(gptel-make-kagi "Kagi"                    ;any name
+                                        ;   :key "AwAAEAJUXQY.3ujDfvPZps7dM1MD7GtLPo6Y1y0ngb8BRDM3T6FQXic")                ;can be a function that returns the key
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
 ;;

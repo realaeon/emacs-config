@@ -51,7 +51,9 @@
 (package!   aggressive-indent
   ;;org-trello
   )
-
+(package! org-ql)
+(package! helm-org-ql)
 ;; (package! org-caldav)
-(unpin! org-gcal)
-(package! oauth2)
+;; (unpin! org-gcal)
+;; (package! oauth2)
+;; (package! gptel)
